@@ -8,13 +8,20 @@ end
 
 def parse_rss_item item
   puts "rss item title -> #{item.css("title").inner_text}"
-  #summary
+  puts "rss item description -> #{item.css("description").inner_text}"
+  puts "rss item link -> #{item.css("link").inner_text}"
+  title, description, link
+
 end
 
 
 def parse_atom_entry entry
   puts "atom entry title -> #{entry.css("title").inner_text}"
-  #summary
+  atom_summary = strip_tags(entry.css("summary").inner_text)
+  puts "atom entry summary -> #{atom_summary}"
+  puts "atom entry link -> #{entry.css("link").attribute("href")}"
+  # puts "atom entry link -> #{entry.at("link").next_sibling.text}"
+  #title, summary, link
 end
 
 def parse_feed feed_url
