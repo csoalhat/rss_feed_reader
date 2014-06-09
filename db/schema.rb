@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140609095834) do
+ActiveRecord::Schema.define(:version => 20140609144231) do
 
   create_table "articles", :force => true do |t|
     t.integer  "feed_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20140609095834) do
     t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "url"
   end
 
   add_index "articles", ["feed_id"], :name => "index_articles_on_feed_id"
