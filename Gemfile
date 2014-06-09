@@ -15,6 +15,8 @@ gem 'autoprefixer-rails'
 gem 'haml'
 gem 'haml-rails'
 gem 'devise'
+gem 'nokogiri'
+
 
 group :development do
   gem 'pry-rails'

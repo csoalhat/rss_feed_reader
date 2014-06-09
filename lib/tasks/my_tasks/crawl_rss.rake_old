@@ -1,0 +1,30 @@
+require 'open-uri'
+
+def get_titles_rss feed
+  feed.css("channel item").each do |item|
+    puts "--" * 50
+    puts "title -> #{item.css("title").inner_text}"
+    puts "description -> #{item.css("description").inner_text}"
+  end
+end
+
+def get_titles_atom feed
+  feed.css("channel entry").each do |entry|
+    puts "--" * 50
+    puts "title -> #{entry.css("title").inner_text}"
+    puts "content -> #{entry.css("content").inner_text}"
+  end
+end
+ 
+namespace :crawl do
+  desc "Will crawl all feeds in DB"
+  task :feeds => :environment do
+    # Get all feeds in DB
+    # For each feed, get the Xml corresponding to the feed
+    # execute the nokogiri parsing method for each feed
+    # save each entry in the db (needs to be unique) 
+    url = "http://feeds.feedburner.com/TechCrunch/"
+    xml_doc  = Nokogiri::XML open(url)
+    get_titles xml_doc
+  end
+end

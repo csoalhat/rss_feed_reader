@@ -8,6 +8,6 @@ class Feed < ActiveRecord::Base
 
   has_and_belongs_to_many :categories
 
-  attr_accessible :description, :title, :url
+  attr_accessible :description, :title, :url, :category_id
   
 end
