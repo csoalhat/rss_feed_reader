@@ -1,14 +1,16 @@
 RssFeedReader::Application.routes.draw do
+  
+  root to: 'feeds#index'
+
   resources :articles
 
 
   resources :comments
 
 
-  resources :categories
-
-
   resources :bookmarks
+
+  resources :categories
 
 
   resources :friendships
