@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Bio:
+  = @profile.bio
+%p
+  %b City:
+  = @profile.city
+%p
+  %b Image:
+  = @profile.image
+%p
+  %b User:
+  = @profile.user
+
+= link_to 'Edit', edit_profile_path(@profile)
+\|
+= link_to 'Back', profiles_path
