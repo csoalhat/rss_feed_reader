@@ -22,6 +22,10 @@ def parse_atom_entry entry
   description = "#{entry.css("summary").inner_text}"
   link = "#{entry.css("link").attribute("href")}"
 
+  attributes = {:title => title, :content => description, :url => link}
+
+  save_post attributes
+
 end
 
 def parse_feed feed_url
