@@ -4,15 +4,13 @@ require "pry"
 
 def save_post attributes
   Article.create(attributes)
-  #   # create_article = { "title"=>"title", "content"=> "description", "url"=> "link" }
-  #   # create_article.save #(params[:feed_id])
-  # a = Article.new(:title => title, :content => description, :url => link )
 end
 
 def parse_rss_item item
-  title = "rss item title -> #{item.css("title").inner_text}"
-  description = "rss item description -> #{item.css("description").inner_text}"
-  link = "rss item link -> #{item.css("link").inner_text}"
+
+  title = "#{item.css("title").inner_text}"
+  description = "#{item.css("description").inner_text}"
+  link = "#{item.css("link").inner_text}"
 
   attributes = {:title => title, :content => description, :url => link}
 
@@ -20,9 +18,10 @@ def parse_rss_item item
 end
 
 def parse_atom_entry entry
-  title = "atom entry title -> #{entry.css("title").inner_text}"
-  description = "atom entry summary -> #{entry.css("summary").inner_text}"
-  link = "rss entry link -> #{entry.css("link").inner_text}"
+  title = "#{entry.css("title").inner_text}"
+  description = "#{entry.css("summary").inner_text}"
+  link = "#{entry.css("link").attribute("href")}"
+
 end
 
 def parse_feed feed_url
