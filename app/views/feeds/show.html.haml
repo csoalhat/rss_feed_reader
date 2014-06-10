@@ -1,23 +1,16 @@
 %p#notice= notice
-
-%p
-  %b Url:
-  = @feed.url
 %p
   %b Title:
-  = @feed.title
-%p
-  %b Description:
-  = @feed.description
-%p
-  %b Articles:
+  %h1
+    = @feed.title
+    (
+    = link_to @feed.url
+    )
+
   - @feed.latest_articles.each do |article|
+    %h2= link_to article.title,  article.url, :target => "_blank"
     %br
-      = article.title
-    %br
-      = article.content
-    %br
-      = article.url
+      = raw article.content
     %br
 
 = link_to 'Edit', edit_feed_path(@feed)
