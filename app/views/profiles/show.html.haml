@@ -1,18 +1,19 @@
-%p#notice= notice
+.row
+  .col-md-4
+    = gravatar_image @profile.user.email
+  
+  .col-md-8
+    %p#notice= notice
 
-%p
-  %b Bio:
-  = @profile.bio
-%p
-  %b City:
-  = @profile.city
-%p
-  %b Image:
-  = @profile.image
-%p
-  %b User:
-  = @profile.user
+    %p
+      %b Bio:
+      = @profile.bio
+    %p
+      %b City:
+      = @profile.city
+    %p
+      %b Image:
+      = @profile.image
 
-= link_to 'Edit', edit_profile_path(@profile)
-\|
-= link_to 'Back', profiles_path
+    - if current_user == @user
+      = link_to 'Edit', edit_current_user_profile_path
