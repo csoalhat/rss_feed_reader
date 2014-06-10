@@ -11,12 +11,18 @@
 
   - @feeds.each do |feed|
     %tr
-      %td= feed.url
-      %td= feed.title
-      %td= feed.description
-      %td= link_to 'Show', feed
-      %td= link_to 'Edit', edit_feed_path(feed)
-      %td= link_to 'Destroy', feed, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td = feed.title
+      %td = feed.description
+      - feed.latest_articles.each do |article|
+        = article.title
+        = article.content
+        = article.url
+
+
+      %td = link_to 'Show', feed
+      %td = link_to 'Edit', edit_feed_path(feed)
+      %td = link_to 'Destroy', feed, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  end
 
 %br
 

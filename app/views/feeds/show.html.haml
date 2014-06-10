@@ -9,6 +9,16 @@
 %p
   %b Description:
   = @feed.description
+%p
+  %b Articles:
+  - @feed.latest_articles.each do |article|
+    %br
+      = article.title
+    %br
+      = article.content
+    %br
+      = article.url
+    %br
 
 = link_to 'Edit', edit_feed_path(@feed)
 \|

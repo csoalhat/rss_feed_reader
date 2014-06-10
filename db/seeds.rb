@@ -1,11 +1,13 @@
-Feed.delete_all
-User.delete_all
-Profile.delete_all
-Friendship.delete_all
-Bookmark.delete_all
-Category.delete_all
-Comment.delete_all
-Article.delete_all
+[ 
+  Feed,
+  User,
+  Profile,
+  Friendship,
+  Bookmark,
+  Category,
+  Comment,
+  Article
+].each(&:delete_all)
  
  
  
