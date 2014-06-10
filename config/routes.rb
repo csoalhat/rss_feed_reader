@@ -1,6 +1,10 @@
 RssFeedReader::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users#, controllers: {:registrations => "registrations", sessions: "sessions"}
+
+  devise_scope :user do
+    resources :users, only: [:index]
+  end 
 
   root to: 'feeds#index'
 
@@ -14,9 +18,11 @@ RssFeedReader::Application.routes.draw do
 
   resources :friendships
 
-  resources :profiles
+  get '/users/:user_id/profile', to: "profiles#show", as: :user_profile
 
-  resources :users
+  get :profile,        to: "profiles#show",   as: :current_user_profile
+  get '/profile/edit', to: "profiles#edit",   as: :edit_current_user_profile
+  put '/profile',      to: "profiles#update", as: :update_current_user_profile
 
   resources :feeds
 

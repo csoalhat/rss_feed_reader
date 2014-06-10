@@ -17,15 +17,16 @@ f3 = Feed.create(url: "http://sports-ak.espn.go.com/espn/rss/news", title: "ESPN
 f4 = Feed.create(url: "http://www.ft.com/rss/home/uk", title: "FT", description: "UK Homepage")
 f5 = Feed.create(url: "http://www.theregister.co.uk/headlines.atom", title: "The register", description: "The register all sections feed")
  
-# u1 = User.create(first_name: "Matt", last_name: "Studdert", email: "matt@matt.com", password: "matt")
-# u2 = User.create(first_name: "Caroline", last_name: "Soalhat", email: "caro@caro.com", password: "caro")
-# u3 = User.create(first_name: "Jon", last_name: "Chambers", email: "jon@jon.com", password: "jon")
-# u4 = User.create(first_name: "Gerry", last_name: "Mathe", email: "gerry@gerry.com", password: "gerry")
+u1 = User.create(first_name: "Matt", last_name: "Studdert", email: "matt@matt.com", password: "matt").skip_confirmation!
+u2 = User.create(first_name: "Caroline", last_name: "Soalhat", email: "caro@caro.com", password: "caro").skip_confirmation!
+u3 = User.create(first_name: "Jon", last_name: "Chambers", email: "jon@jon.com", password: "jon").skip_confirmation!
+u4 = User.create(first_name: "Gerry", last_name: "Mathe", email: "gerry@gerry.com", password: "gerry").skip_confirmation!
+
  
-# p1 = Profile.create(bio: "Hey my name is Matt", city: "London", image: "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/10367177_10100198061487738_7986433332731443081_n.jpg?oh=78996c7331981a9d8e45f85f5938d3cc&oe=53FA62D8&__gda__=1408962412_453ea50ef7250b94989b4f9f6f50f907", user_id: 1) 
-# p2 = Profile.create(bio: "Hey my name is Caroline", city: "Caseneuve", image: "https://scontent-b-lhr.xx.fbcdn.net/hphotos-xpa1/t1.0-9/10300298_10100653947271617_425079544950735696_n.jpg", user_id: 2) 
-# p3 = Profile.create(bio: "Hey my name is Jon", city: "London", user_id: 3) 
-# p4 = Profile.create(bio: "Hey my name is Gerry", city: "Paris", user_id: 4) 
+p1 = Profile.create(bio: "Hey my name is Matt", city: "London", image: "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/10367177_10100198061487738_7986433332731443081_n.jpg?oh=78996c7331981a9d8e45f85f5938d3cc&oe=53FA62D8&__gda__=1408962412_453ea50ef7250b94989b4f9f6f50f907", user_id: 1) 
+p2 = Profile.create(bio: "Hey my name is Caroline", city: "Caseneuve", image: "https://scontent-b-lhr.xx.fbcdn.net/hphotos-xpa1/t1.0-9/10300298_10100653947271617_425079544950735696_n.jpg", user_id: 2) 
+p3 = Profile.create(bio: "Hey my name is Jon", city: "London", user_id: 3) 
+p4 = Profile.create(bio: "Hey my name is Gerry", city: "Paris", user_id: 4) 
  
 # b1 = Bookmark.create(user_id: 1, article_id: 1, thought: "this is a really cool article")
 # b2 = Bookmark.create(user_id: 1, article_id: 2, thought: "I really want to share that")
