@@ -1,3 +1,7 @@
+body {
+  width: 960px;
+}
+
 nav .container {
   list-style: none;
   width: 100%;
@@ -26,4 +30,8 @@ nav ul li {
 #sessions {
   position: fixed;
   bottom: 30px;
+}
+
+.container #sign_up {
+  margin: 0 auto;
 }
