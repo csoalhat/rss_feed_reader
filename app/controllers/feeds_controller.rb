@@ -40,10 +40,11 @@ class FeedsController < ApplicationController
   # POST /feeds
   # POST /feeds.json
   def create
+    get_category_ids
     @feed = Feed.new(params[:feed])
-
     respond_to do |format|
       if @feed.save
+        add_categories!
         format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
         format.json { render json: @feed, status: :created, location: @feed }
       else
@@ -56,10 +57,11 @@ class FeedsController < ApplicationController
   # PUT /feeds/1
   # PUT /feeds/1.json
   def update
+    get_category_ids
     @feed = Feed.find(params[:id])
-
     respond_to do |format|
       if @feed.update_attributes(params[:feed])
+        add_categories!
         format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,4 +82,17 @@ class FeedsController < ApplicationController
       format.json { head :no_content }
     end
   end
+ 
+  private
+
+  def get_category_ids
+    @category_ids = params[:feed].delete(:category_ids)
+  end
+
+  def add_categories!
+    categories = Category.find @category_ids
+    @feed.categories = categories
+  end
+
+
 end

@@ -10,7 +10,8 @@
     = f.label :url
     = f.text_field :url
   .field
-    = f.label :title
-    = f.text_field :title
+    = f.label :category
+    = select_tag("feed[category_ids][]", options_for_select(Category.all.collect { |category| [category.name, category.id] }, @feed.categories.collect { |category| category.id }), {:multiple=>true, :size=>5})
+    / = f.collection_select(:category_id, Category.all, :id, :name)
   .actions
     = f.submit 'Save'

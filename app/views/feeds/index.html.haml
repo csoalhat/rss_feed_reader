@@ -1,20 +1,10 @@
-%h1 Listing feeds
-
 %table
   %tr
     %th Name
-    %th Title
-    %th Description
-    %th
-    %th
-    %th
 
   - @feeds.each do |feed|
     %tr
       %td= feed.title
-      %td= feed.description
-
-
       %td= link_to 'Show', feed
       / %td= link_to 'Subscribe' / 'Unsubscribe'
  

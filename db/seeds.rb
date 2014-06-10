@@ -33,11 +33,11 @@ f5 = Feed.create(url: "http://www.theregister.co.uk/headlines.atom", title: "The
 # b4 = Bookmark.create(user_id: 3, article_id: 3, thought: "Hello world")
 # b5 = Bookmark.create(user_id: 3, article_id: 4, thought: "So cool!")
  
-# c1 = Category.create(name: "Newspapers")
-# c2 = Category.create(name: "Sports")
-# c3 = Category.create(name: "Science")
-# c4 = Category.create(name: "Technology")
-# c5 = Category.create(name: "Finance")
+c1 = Category.create(name: "Newspapers")
+c2 = Category.create(name: "Sports")
+c3 = Category.create(name: "Science")
+c4 = Category.create(name: "Technology")
+c5 = Category.create(name: "Finance")
  
 # com1 = Comment.create(user_id: 1, bookmarks_id: 2, body: "this is comment from user 1")
 # com2 = Comment.create(user_id: 4, bookmarks_id: 1, body: "this is comment from user 4")

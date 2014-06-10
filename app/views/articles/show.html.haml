@@ -1,18 +1,14 @@
 %p#notice= notice
 
 %p
-  %b Feed:
-  = @article.feed
+  %b= link_to @article.feed.title, @article.feed
+
 %p
-  %b Title:
-  = @article.title
+  %b= link_to @article.title, @article.url, :target => "_blank"  
+%p= raw @article.content
 %p
-  %b Content:
-  = @article.content
-%p
-  %b Image:
   = @article.image
 
-= link_to 'Edit', edit_article_path(@article)
+= link_to 'Read Full Article', @article.url, :target => "_blank" 
 \|
 = link_to 'Back', articles_path
