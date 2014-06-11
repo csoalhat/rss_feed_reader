@@ -21,7 +21,7 @@
 
         - if current_user == @user
           = link_to 'Edit', edit_current_user_profile_path
-
+  / - if current_user.is_public
   .profile_bookmarks
     %table
       - @user.bookmarks.each do |article|

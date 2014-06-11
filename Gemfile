@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'nokogiri'
 gem 'cancan'
+gem 'will_paginate', '~> 3.0'
 
 
 group :development do

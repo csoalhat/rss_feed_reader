@@ -1,0 +1,8 @@
+%table
+  - @articles.each do |article|
+    %tr
+      %td= article.feed.title
+      %td= article.title
+      %td= button_to 'Show', article, class: "btn btn-info", method: :get
+      
+      %td= link_to 'Bookmark Article', new_bookmark_path(article_id: article.id), class: "btn btn-info"

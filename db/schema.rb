@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140611122750) do
+=======
+ActiveRecord::Schema.define(:version => 20140611152301) do
+>>>>>>> eafed3aa1e8fe2f8ac23e4579651dc4a306b8415
 
   create_table "articles", :force => true do |t|
     t.integer  "feed_id"
@@ -116,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20140611122750) do
     t.datetime "updated_at",                             :null => false
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "is_public"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

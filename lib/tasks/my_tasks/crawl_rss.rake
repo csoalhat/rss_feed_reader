@@ -28,9 +28,17 @@ def parse_atom_entry(entry, feed)
 
 end
 
+def get_feed_info feed, doc
+  feed.update_attributes({
+    title: doc.css("channel>title").inner_text,
+    description: doc.css("channel>description").inner_text
+  })
+end
+
 def parse_feed(feed)
   open(feed.url) do |rss|
     xml_doc = Nokogiri::XML(rss)
+    get_feed_info(feed, xml_doc)
     if xml_doc.css("channel").present? #rss
       xml_doc.css("channel item").each{ |item| parse_rss_item(item, feed) }
     elsif xml_doc.css("feed") #atom
@@ -44,7 +52,7 @@ namespace :crawl do
   task :feeds => :environment do
     puts Feed.all.count
     Feed.all.each do |feed|
-      puts "#{feed.title} (#{feed.url})"
+      
       puts "-" * 50
       parse_feed feed
     end
