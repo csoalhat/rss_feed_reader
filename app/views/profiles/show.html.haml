@@ -21,3 +21,13 @@
 
         - if current_user == @user
           = link_to 'Edit', edit_current_user_profile_path
+
+  .profile_bookmarks
+    %table
+      - @user.bookmarks.each do |article|
+        %tr
+          %td= article.article.title
+          %td= article.thought
+          %td= button_to 'Show', article.article, class: "btn btn-info", method: :get
+        
+

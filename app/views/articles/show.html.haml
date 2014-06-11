@@ -5,9 +5,10 @@
 
 %p
   %b= link_to @article.title, @article.url, :target => "_blank"  
-%p= raw @article.content
-%p
-  = @article.image
+/ %p= raw @article.content
+/ %p
+/   = @article.image
+%iframe{src: "#{@article.url}"}
 
 = link_to 'Read Full Article', @article.url, :target => "_blank" 
 \|

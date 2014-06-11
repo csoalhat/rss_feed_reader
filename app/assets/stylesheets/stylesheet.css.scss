@@ -31,10 +31,6 @@ nav ul li {
   font-size: 14px;
 }
 
-.articles_index {
-  // font-size: 30px;
-}
-
 #profile_header {
   background-color: red;
 }
@@ -42,8 +38,21 @@ nav ul li {
 #profile_header .profile_desc {
   position: relative;
   margin-left: -130px;
+  margin-top: 30px;
+  font-size: 24px;
 }
 
-.row.profile_pic {
+.profile_bookmarks {
+  background-color: yellow;
+  height: 100vh
+}
+
+iframe {
+  width: 80%;
+  height: 100vh;
+}
+
+.profile_pic img {
   border-radius: 50%;
+  margin-top: 30px;
 }
