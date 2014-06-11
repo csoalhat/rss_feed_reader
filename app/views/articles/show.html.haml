@@ -9,7 +9,3 @@
 / %p
 /   = @article.image
 %iframe{src: "#{@article.url}"}
-
-= link_to 'Read Full Article', @article.url, :target => "_blank" 
-\|
-= link_to 'Back', articles_path
