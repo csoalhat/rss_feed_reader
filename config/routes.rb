@@ -9,7 +9,7 @@ RssFeedReader::Application.routes.draw do
     resources :users, only: [:index]
   end 
 
-  root to: 'feeds#index'
+  root to: 'home#index'
 
   resources :articles
 
@@ -32,5 +32,7 @@ RssFeedReader::Application.routes.draw do
       get :subscribe
     end
   end
+
+  resources :home, only: [:index]
 
 end
