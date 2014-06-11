@@ -1,19 +1,23 @@
-.row
-  .col-md-4
-    = gravatar_image @profile.user.email
-  
-  .col-md-8
-    %p#notice= notice
+#profile_header
+  .row
+    .col-md-4.profile_pic
+      = gravatar_image @profile.user.email
+    
+    .col-md-8
+      .profile_desc
+        %p#notice= notice
 
-    %p
-      %b Bio:
-      = @profile.bio
-    %p
-      %b City:
-      = @profile.city
-    %p
-      %b Image:
-      = @profile.image
+        %p
+          %b Bio:
+          %br
+          = @profile.bio
+        %p
+          %b City:
+          %br
+          = @profile.city
+        / %p
+        /   %b Image:
+        /   = @profile.image
 
-    - if current_user == @user
-      = link_to 'Edit', edit_current_user_profile_path
+        - if current_user == @user
+          = link_to 'Edit', edit_current_user_profile_path

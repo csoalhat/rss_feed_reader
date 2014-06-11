@@ -1,15 +1,10 @@
-show single article
-
 %h1 Listing articles
 
-%table
-  - @articles.each do |article|
-    %tr
-      %td= article.feed.title
-      %td= article.title
-      %td= link_to 'Show', article
-
-
-%br
-
+.articles_index
+  %table
+    - @articles.each do |article|
+      %tr
+        %td= article.feed.title
+        %td= article.title
+        %td= link_to 'Show', article
 

@@ -30,3 +30,20 @@ nav ul li {
 .small {
   font-size: 14px;
 }
+
+.articles_index {
+  // font-size: 30px;
+}
+
+#profile_header {
+  background-color: red;
+}
+
+#profile_header .profile_desc {
+  position: relative;
+  margin-left: -130px;
+}
+
+.row.profile_pic {
+  border-radius: 50%;
+}
