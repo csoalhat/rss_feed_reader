@@ -2,13 +2,12 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-<<<<<<< HEAD
-    @articles = Article.all
-    @bookmarks = current_user.bookmarks.where(article_id: @articles.map(&:id))
-=======
+# <<<<<<< HEAD
+#     @articles = Article.all
+#     @bookmarks = current_user.bookmarks.where(article_id: @articles.map(&:id))
+# =======
     @articles = Article.order("created_at").page(params[:page])
->>>>>>> eafed3aa1e8fe2f8ac23e4579651dc4a306b8415
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }

@@ -1,17 +1,20 @@
-= form_for @feed do |f|
-  - if @feed.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@feed.errors.count, "error")} prohibited this feed from being saved:"
-      %ul
-        - @feed.errors.full_messages.each do |msg|
-          %li= msg
-          
-  .field
-    = f.label :url
-    = f.text_field :url
-  .field
-    = f.label :category
-    = select_tag("feed[category_ids][]", options_for_select(Category.all.collect { |category| [category.name, category.id] }, @feed.categories.collect { |category| category.id }), {:multiple=>true, :size=>5})
-    / = f.collection_select(:category_id, Category.all, :id, :name)
-  .actions
-    = f.submit 'Save'
+.yield-wrapper
+  = form_for @feed do |f|
+    .article-wrapper 
+      - if @feed.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@feed.errors.count, "error")} prohibited this feed from being saved:"
+          %ul
+            - @feed.errors.full_messages.each do |msg|
+              %li= msg      
+      .field
+        %p="Enter the URL of the feed you want to add: " 
+        = f.text_field :url
+      .field
+        %br
+        %p="Select categories for your feed. Hold command to select several categories."
+        .selectbox= select_tag("feed[category_ids][]", options_for_select(Category.all.collect { |category| [category.name.capitalize, category.id] }, @feed.categories.collect { |category| category.id }), {:multiple=>true, :size=>5})
+        / = f.collection_select(:category_id, Category.all, :id, :name)
+      .actions
+        %br
+        .bt= f.submit 'Save'

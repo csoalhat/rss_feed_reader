@@ -1,13 +1,7 @@
-%h1 Listing users
-
-%table
-  %tr
-    %th First name
-    %th Last name
-    %th
-
-  - @users.each do |user|
-    %tr
-      %td= user.first_name
-      %td= user.last_name
-      %td= link_to 'Show', user_profile_path(user)
+.headline users
+.yield-wrapper
+  .article-wrapper
+    - @users.each do |user|
+      .category= user.first_name
+      .category= user.last_name
+      .bt= link_to 'Show', user_profile_path(user)

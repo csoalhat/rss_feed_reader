@@ -1,15 +1,9 @@
-%p#notice= notice
+.iframe-wrapper
+  .article-wrapper
+    .article-title= link_to @article.feed.title, @article.feed
+    %p= link_to @article.title, @article.url, :target => "_blank" 
+    %iframe{src: "#{@article.url}"} 
 
-%p
-  %b= link_to @article.feed.title, @article.feed
-
-%p
-  %b= link_to @article.title, @article.url, :target => "_blank"  
-
-/ %p
-/   - unless @bookmarks.article_id == article.id
-/     %b= link_to 'Bookmark Article', new_bookmark_path(article_id: article.id), class: "btn btn-info"
-/ %p= raw @article.content
-/ %p
-/   = @article.image
-%iframe{src: "#{@article.url}"}
+  / %p
+  /   - unless @bookmarks.article_id == article.id
+  /     %b= link_to 'Bookmark Article', new_bookmark_path(article_id: article.id)

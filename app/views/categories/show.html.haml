@@ -1,10 +1,12 @@
-%p
-- @category.feeds.each do |feed|
-  %p= link_to feed.title, feed
-  %td= link_to 'Subscribe to feed', subscribe_feed_path, class: "btn btn-info"
-%br
-= link_to 'Back', categories_path
-
-(feed_id: feed.id)
+%p#notice= notice
+.headline #{@category.name}
+.yield-wrapper
+  .article-wrapper
+    - @category.feeds.each do |feed|
+      .category= link_to feed.title, feed
+      .bt= link_to 'Subscribe to feed', subscribe_feed_path
+    %br
+  .article-wrapper  
+    .bt= link_to 'See all categories', categories_path
 
 
