@@ -11,6 +11,8 @@ class Feed < ActiveRecord::Base
 
   attr_accessible :description, :title, :url, :category_id
 
+  validates_uniqueness_of :url
+
   def latest_articles
     articles.order('created_at DESC').limit(10)
   end

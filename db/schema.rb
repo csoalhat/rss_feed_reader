@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140610153200) do
+ActiveRecord::Schema.define(:version => 20140611152301) do
 
   create_table "articles", :force => true do |t|
     t.integer  "feed_id"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20140610153200) do
     t.datetime "updated_at",                             :null => false
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "is_public"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
