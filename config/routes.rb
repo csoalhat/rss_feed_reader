@@ -6,7 +6,7 @@ RssFeedReader::Application.routes.draw do
     resources :users, only: [:index]
   end 
 
-  root to: 'feeds#index'
+  root to: 'home#index'
 
   resources :articles
 
@@ -25,5 +25,7 @@ RssFeedReader::Application.routes.draw do
   put '/profile',      to: "profiles#update", as: :update_current_user_profile
 
   resources :feeds
+
+  resources :home, only: [:index]
 
 end

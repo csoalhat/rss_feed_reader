@@ -13,6 +13,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 gem 'nokogiri'
+gem 'cancan'
 
 
 group :development do
