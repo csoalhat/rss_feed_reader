@@ -24,7 +24,8 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/new
   # GET /bookmarks/new.json
   def new
-    @bookmark = Bookmark.new
+    @article = Article.find(params[:article_id])
+    @bookmark = @article.bookmarks.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class BookmarksController < ApplicationController
   # POST /bookmarks.json
   def create
     @bookmark = Bookmark.new(params[:bookmark])
+    @bookmark.user = current_user
 
     respond_to do |format|
       if @bookmark.save

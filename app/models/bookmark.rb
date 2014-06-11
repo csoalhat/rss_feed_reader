@@ -5,6 +5,6 @@ class Bookmark < ActiveRecord::Base
   
   has_many :comments
 
-  attr_accessible :thought, :title, :user_id
+  attr_accessible :thought, :title, :user_id, :article, :article_id
   
 end

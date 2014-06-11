@@ -6,10 +6,7 @@ gem 'rails', '3.2.17'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'sextant'
-gem 'hirb'
+
 gem 'ransack'
 gem 'autoprefixer-rails'
 gem 'haml'
@@ -21,6 +18,10 @@ gem 'nokogiri'
 group :development do
   gem 'pry-rails'
   gem 'meta_request'
+  gem 'better_errors', git: 'git@github.com:charliesome/better_errors.git', branch: 'master'
+  gem 'binding_of_caller'
+  gem 'sextant'
+  gem 'hirb'
 end
 
 group :production do
