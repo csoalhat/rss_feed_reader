@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @bookmarks = current_user.bookmarks.where(article_id: @articles.map(&:id))
 
     respond_to do |format|
       format.html # index.html.erb

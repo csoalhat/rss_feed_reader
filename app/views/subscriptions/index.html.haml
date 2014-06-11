@@ -1,0 +1,12 @@
+%h1 Listing subscriptions
+
+%table
+  %tr
+    %th Feed
+
+  - @subscriptions.each do |subscription|
+    %tr
+      %td= subscription.feed.title
+
+      / %td= link_to 'Destroy', subscription, :method => :delete, :data => { :confirm => 'Are you sure?' }
+

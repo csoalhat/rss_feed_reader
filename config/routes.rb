@@ -1,5 +1,8 @@
 RssFeedReader::Application.routes.draw do
   
+  resources :subscriptions, only: [:index]
+
+
   devise_for :users#, controllers: {:registrations => "registrations", sessions: "sessions"}
 
   devise_scope :user do
@@ -24,6 +27,10 @@ RssFeedReader::Application.routes.draw do
   get '/profile/edit', to: "profiles#edit",   as: :edit_current_user_profile
   put '/profile',      to: "profiles#update", as: :update_current_user_profile
 
-  resources :feeds
+  resources :feeds do
+    member do
+      get :subscribe
+    end
+  end
 
 end

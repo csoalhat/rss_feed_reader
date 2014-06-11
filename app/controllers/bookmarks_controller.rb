@@ -46,8 +46,8 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
-        format.json { render json: @bookmark, status: :created, location: @bookmark }
+        format.html { redirect_to current_user_profile_path, notice: 'Bookmark was successfully created.' }
+        format.json { render json: current_user_profile_path, status: :created, location: @bookmark }
       else
         format.html { render action: "new" }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }

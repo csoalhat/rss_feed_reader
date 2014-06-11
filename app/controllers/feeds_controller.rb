@@ -82,6 +82,12 @@ class FeedsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def subscribe
+    @feed = Feed.find(params[:id])
+    @feed.subscriptions.create(user: current_user)
+    redirect_to :back
+  end
  
   private
 
